@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todo</title>
+</head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<body><center>
+    <script type="text/javascript">
+      /*$(document).ready(function() {
+       //클릭시 삭제
+        $(".tstul").click(function(){
+           $(this).children(0).hide();
+        });
+         $("ul.tstul").children().css("background-color", "pink");
+      });*/
+      /*
+
+      javascript사용
+
+      function addList(){
+         var li = document.createElement("li");
+         var inputValue = document.getElementById("myInput").value;
+         var t = document.createTextNode(inputValue);
+         li.appendChild(t);
+         if (inputValue !== '') {
+            document.getElementById("myUL").appendChild(li);
+         }
+         document.getElementById("myInput").value = "";
+      }*/
+
+//클릭시 삭제
+        function clickHandler(e){
+                      $(this).hide();
+       }
+//list 추가
+      function addListTst(){
+        var input = $( "#myInput" ).val();
+        $(" .myUL li:last").append("<li>"+ input +"</li>");
+        $( "#myInput" ).val("");
+      }
+
+//main
+      $(document).ready(function() {
+         $(document).bind('ready', function(){
+            $('#li1').bind('click', clickHandler);
+           // $('#add').bind('click', addList);
+            $('#add').bind('click', addListTst);
+          })
+
+     //배경은 회색
+      $(document.body).css("background-color", "lightgray");
+  });
+    </script>
+
+    <h2 > To Do List</h2>
+    <input type ="text" id="myInput" placeholder="해야할일...">
+    <input type = "button"  id = "add" value ="추가">
+
+    <ul class = "myUL">
+      <li id = "li1">진주귀걸이를 한소녀 보기</li>
+      <li >CADI web과제</li>
+      <li>교재사기</li>
+    </ul>
+
+    </center>
+</body>
+</html>
