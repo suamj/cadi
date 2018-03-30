@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+
+<HTML>
+    <HEAD>
+        <META charset="utf-8"/> 
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <SCRIPT>
+            window.onload = function(){
+                var getRandomNumberId = document.getElementById("randomNumber");
+                var getLoginFormID = document.getElementById("login_form");
+                var randomNumber = Math.floor(Math.random()* 1000000 +1);
+        
+                getRandomNumberId.innerHTML = randomNumber;
+
+                $(document).ready(function() {
+                    $("#login_ok").click(function(){
+                        var getRandomNumberInputId =  document.getElementById("randomNumberInput");
+                        var getUserNumberValue = getRandomNumberInputId.value;
+                    
+                        if(randomNumber == getUserNumberValue)
+                        {
+                            getLoginFormID.submit();
+                        }
+                        else
+                        {
+                            alert("입력한 숫자가 다릅니다");
+                            getLoginFormID.reset();
+                        }
+                    });
+                });
+         
+            }
+        </SCRIPT>
+    
+        <style type="text/css">
+            body {
+                font-family: "Rockwell";
+                padding : "100";
+               
+            }
+            h2 {
+               color:rgb(61, 153, 43);
+            }
+            #tx{
+                color:rgb(223, 61, 50);
+                
+            }
+            table {
+                 border-collapse: collapse;
+                 border: 3px solid lightgrey;  
+            }
+            #ko{
+                font-family: "맑은 고딕";
+                font-size: 10pt;
+            }
+         </style>
+    </HEAD>
+    <BODY>
+        <center>
+        <img src="./cadi.png">
+        <h2 >Cadi - Join</h2>    
+        <form id="login_form" method="POST" action="login_ok.php">
+            <table  cellpadding= "10" >
+                <tr>
+                    <td id="tx">
+                        <b>ID</b>
+                    </td>
+                    <td>
+                        <input type="edit" name="sign_id" size=20/>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="tx">
+                        <b>PASSWORD</b>
+                    </td>
+                    <td>
+                        <input type="password" name="sign_pass" size=20/>
+                    </td>
+                </tr>
+                <tr>
+                    <td  align =center >
+                        <b id= "ko">보이는 대로 입력하세요</b>
+                        
+                       <div id="randomNumber"></div>
+                    </td>
+                    <td>
+                        <input type ="text" id = "randomNumberInput" size = "20">
+                    </td>
+                </tr>
+                
+            </table>
+            <br>
+            <input type="button" id="login_ok" onclick="LoginEvent()" value="로그인" />
+        </form>
+    </center>
+    </BODY>
+</HTML>
