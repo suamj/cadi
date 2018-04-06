@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todo</title>
+</head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+<script>
+  $(document).ready(function() {
+    $("#chBox").click(function(){
+      $(this).hide();
+    });
+  });
+</script>
+<body><center>
+    <h2 > To Do List</h2>
+    <input type ="text" id="myInput" placeholder="해야할일...">
+    <input type = "button"  onclick="newElement2()" id = "add" value ="추가">
+ <p></p>
+    <h id= "chBox"><input type = "checkbox"  name="list"  >영화보기</h><br>
+    <h id= "chBox"><input type = "checkbox" id= "chBox" name="list" >책반납</h><br>
+    <h id= "chBox"><input type = "checkbox" id= "chBox" name="list" >Cadi과제하기</h><br>
+
+    <h id="pp"></h>
+    </center>
+    <script>
+      function newElement2() {
+          var inputValue = document.getElementById("myInput").value;
+          if (inputValue !== '') {
+            var p = document.getElementById("pp");
+            p.innerHTML = "<input type = checkbox id=chbox name=list>" + inputValue + "<br>";
+          }
+          document.getElementById("myInput").value = "";
+      }
+
+    </script>
+   
+</body>
+</html>

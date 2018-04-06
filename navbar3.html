@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=NFwjFEQNVNKUpy9KmeUR&submodules=geocoder"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  <title>HW-6week - profile</title>
+
+</head>
+
+<script>
+  $(document).ready(function () {
+
+    $(".jumbotron").hide();
+
+    $("#profile").click(function () {
+      $(".jumbotron").show();
+    });
+
+    $("#close").click(function () {
+      $("#tdlPage").hide();
+      $(".jumbotron").hide();
+    });
+    $("#todolist").click(function () {
+      $("#tdlPage").toggle();
+    });
+  });
+</script>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="https://blog.naver.com/alwlcuswo">
+          <img alt="cadilogo" src="mj.jpg" width=30 height="auto">
+        </a>
+        <!-- 브랜드 이미지-->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!--필요성??-->
+        <a class="navbar-brand" id="profile" href="#"> LEE.M.J</a>
+        <!--a class="navbar-brand" href="https://www.instagram.com/sua_mj/">LEE.M.J</a-->
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="https://www.w3schools.com/html/default.asp">w3c
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://opentutorials.org/course/1">생활코딩</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Social
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a href="https://www.facebook.com/">facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/?hl=ko">instagram </a>
+              </li>
+            </ul>
+          </li>
+          <li id="todolist">
+            <a href="todo.html" target="tdlPage">to do list(ver.li) </a>
+          </li>
+
+        </ul>
+        <a class="navbar-brand" href="#">
+          <img id="close" src="close.png" height="10">
+        </a>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="https://blog.naver.com/alwlcuswo">my blog</a>
+          </li>
+        </ul>
+        <p class="navbar-text navbar-right">
+          <a href="http://127.0.0.1/login_jquery.html" target="tdlPage" class="navbar-link">cadi-로그인</a>
+        </p>
+        <!--일반 링크 nav 외부 링크사용 -->
+        <!--기본과 반전 네비게이션 바에 적절한 색을 맞추기 위해 navbar-link-->
+      </div>
+    </div>
+
+    <div class="jumbotron">
+      <center>
+        <div class="alert alert-danger" id="alertNav">
+          <h5>Hello ! 여 러 분 ♡</h5>
+          <!--a class="alert-link"></a  font-style="bold"안먹는이유???? -->
+        </div>
+        <span>
+          <a href="mj profile.jpg" onclick="javascipt:window.open('popup','scrollbars=no', resizeable=no )">
+            <img src="mj profile.jpg" alt="" width="30%" style=" font-weight:300;">
+          </a>
+        </span>
+
+        <span id="map" style="width:40%;height:400px; float:right"></span>
+        <script>
+          var mapOptions = {
+            center: new naver.maps.LatLng(37.606947, 127.041956),
+            zoom: 10
+          };
+          var map = new naver.maps.Map('map', mapOptions);
+        </script>
+        <p></p>
+        <div>
+          <h3>
+            <b>이 미 지</b>
+          </h3>
+          <h5>dongduk.w.univ</h5>
+          <h5>97. 06 . 09</h5>
+          <a class="btn btn-danger btn-lg" href=" https://www.instagram.com/sua_mj/?hl=ko ">instagram &nbsp; sua_mj</a>
+        </div>
+      </center>
+    </div>
+
+
+  </nav>
+  <center>
+    <!--<div id = "tdlPage" > tdlPage</div> 안되는이유-->
+    <iframe id="tdlPage" name="tdlPage" width="800" height="500" frameborder=0></iframe>
+  </center>
+
+</body>
+
+</html>
